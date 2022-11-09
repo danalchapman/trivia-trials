@@ -8,7 +8,7 @@ export const Form = () => {
     })
 
     return (
-        <section>
+        <section className='landing-page'>
             <form>
                 <select
                     className='difficulty-option'

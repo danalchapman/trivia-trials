@@ -3,7 +3,7 @@ import './Question.css'
 
 export const Question = () => {
     return (
-        <article>
+        <article className='questions'>
             I am a Question that will lead to other Questions!
         </article>
     )

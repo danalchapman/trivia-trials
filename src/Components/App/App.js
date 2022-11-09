@@ -13,7 +13,6 @@ export const App = () => {
 
     useEffect(() => {
         getData()
-            // .then(questions => console.log(questions))
             .then(questions => {
                 setQuestion(questions)
             })
@@ -21,7 +20,7 @@ export const App = () => {
     }, [])
 
     return (
-        <main>
+        <main className='main-page'>
             <h1>Trivia Trials</h1>
             <Nav />
             <Form />

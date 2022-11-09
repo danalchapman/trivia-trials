@@ -12,17 +12,17 @@ export const App = () => {
     const [error, setError] = useState('')
 
     useEffect(() => {
-        getData()
+        getData(/* Pass in Difficulty value from Form? */)
             .then(questions => {
                 setQuestion(questions)
             })
             .catch(error => setError(`Oops! You took a wrong turn down to a dead end with ${error.message} written on the wall. Turn back.`))
-    }, [])
+    }, [/* Difficulty Value? */])
 
     return (
         <main className='main-page'>
-            <h1>Trivia Trials</h1>
             <Nav />
+            {error && <h2>{error}</h2>}
             <Form />
             <Question />
             <Review />

@@ -1,24 +1,28 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './Form.css'
 
 export const Form = () => {
-
-    const [values, setValues] = useState({
-        difficulty: ''
-    })
+    
 
     return (
         <section className='landing-page'>
+            <h2>Ready to Begin?</h2>
             <form>
                 <select
-                    className='difficulty-option'
-                    type='text'
+                    className='difficulty-dropdown'
                     name='difficulty'
-                    value={values.difficulty}
-                    onChange={setValues}
+                    defaultValue='Select Difficulty'
+                    // onChange={event => renderQuestions(event.target.value)}
                 >
-                    <option>Select Difficulty</option>
+                    <option disabled value='Select Difficulty'>Select Difficulty</option>
+                    <option value='easy'>Easy</option>
+                    <option value='medium'>Medium</option>
+                    <option value='hard'>Hard</option>
                 </select>
+                <button
+                    className='submit-difficulty'
+                    // onClick={}
+                >Enter the Dungeon</button>
             </form>
         </section>
     )

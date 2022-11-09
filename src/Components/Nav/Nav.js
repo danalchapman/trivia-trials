@@ -4,7 +4,8 @@ import './Nav.css'
 export const Nav = () => {
     return (
         <nav className='nav-bar'>
-            I am a NavBar with Links to Home | Review
+            <h1>Trivia Trials</h1>
+            <p>Home | Review</p>
         </nav>
     )
 }

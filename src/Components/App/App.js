@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Nav } from '../Nav/Nav'
 import { Form } from '../Form/Form'
 import { Question } from '../Question/Question'
@@ -13,7 +13,7 @@ export const App = () => {
 
     useEffect(() => {
         getData()
-            .then(questions => console.log(questions))
+            // .then(questions => console.log(questions))
             .then(questions => {
                 setQuestion(questions)
             })

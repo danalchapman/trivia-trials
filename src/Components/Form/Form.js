@@ -1,17 +1,25 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import './Form.css'
 
-export class Form extends Component {
-    constructor() {
-        super()
-        this.state = {}
-    }
+export const Form = () => {
 
-    render() {
-        return (
+    const [values, setValues] = useState({
+        difficulty: ''
+    })
+
+    return (
+        <section>
             <form>
-                I am a Form
+                <select
+                    className='difficulty-option'
+                    type='text'
+                    name='difficulty'
+                    value={values.difficulty}
+                    onChange={setValues}
+                >
+                    <option>Select Difficulty</option>
+                </select>
             </form>
-        )
-    }
+        </section>
+    )
 }

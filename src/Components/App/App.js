@@ -1,31 +1,33 @@
-import React, { Component } from 'react'
+import { useState, useEffect } from 'react'
+import { Nav } from '../Nav/Nav'
+import { Form } from '../Form/Form'
+import { Question } from '../Question/Question'
+import { Review } from '../Review/Review'
 import { getData } from '../../apiCalls'
 import './App.css'
 
-export default class App extends Component {
-    constructor() {
-        super()
-        this.state = {
-            questions: [],
-            error: ''
-        }
-    }
+export const App = () => {
 
-    componentDidMount = () => {
+    const [question, setQuestion] = useState([])
+    const [error, setError] = useState('')
+
+    useEffect(() => {
         getData()
-            .then(question => console.log(question))
-            .then(question => this.setState({questions: question}))
-            .catch(error => this.setState({error: `${error.message}`}))
-    }
+            .then(questions => console.log(questions))
+            .then(questions => {
+                setQuestion(questions)
+            })
+            .catch(error => setError(`Oops! You took a wrong turn down to a dead end with ${error.message} written on the wall. Turn back.`))
+    }, [])
 
-    render() {
-        return (
-            <div>
-                <h1>Trivia Trials</h1>
-                {/* Navigation Component w/ Links (Home, Review) */}
-                {/* Home Page Component */}
-                {/* Review Page Component */}
-            </div>
-        )
-    }
+    return (
+        <main>
+            <h1>Trivia Trials</h1>
+            <Nav />
+            <Form />
+            <Question />
+            <Review />
+        </main>
+    )
 }
+

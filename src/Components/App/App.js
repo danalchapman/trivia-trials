@@ -13,6 +13,7 @@ export default class App extends Component {
 
     componentDidMount = () => {
         getData()
+            .then(question => console.log(question))
             .then(question => this.setState({questions: question}))
             .catch(error => this.setState({error: `${error.message}`}))
     }

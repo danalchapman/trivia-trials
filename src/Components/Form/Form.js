@@ -1,7 +1,7 @@
 import React from 'react'
 import './Form.css'
 
-export const Form = () => {
+export const Form = ({ difficulty, setDifficulty }) => {
     
 
     return (

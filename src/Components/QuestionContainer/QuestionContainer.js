@@ -1,21 +1,29 @@
 import React, { useState, useEffect } from 'react'
+import { Question } from '../Question/Question'
 import { getData } from '../../apiCalls'
 import './QuestionContainer.css'
 
-export const QuestionContainer = ({ getQuestions }) => {
+export const QuestionContainer = ({ difficulty }) => {
 
-    const [question, setQuestion] = useState([])
+    const [questions, setQuestions] = useState([])
+    const [error, setError] = useState('')
 
     useEffect(() => {
-        getData()
+        getData(difficulty)
             .then(questions => {
-                setQuestion(questions)
+                setQuestions(questions.results)
             })
-    })
+            .catch(error => setError(`Oops. ${error.message} Try again.`))
+    }, [difficulty])
+
+    const generateCurrentQuestion = () => {
+        return <Question currentQuestion={ questions[0] } />
+    }
 
     return (
-        <article className='questions'>
-            {/* {questionCard} */}
-        </article>
+        <section className='questions'>
+            { error && <h2>{error}</h2> }
+            { generateCurrentQuestion() }
+        </section>
     )
 }

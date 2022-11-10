@@ -1,3 +1,36 @@
 .landing-page {
-    border: 3px solid blue;
+    display: flex;
+    height: 100%;
+}
+
+.form-style {
+    background-color: rgb(33, 22, 14);
+    background-image: linear-gradient(rgb(33, 22, 14), rgb(0, 0, 0));
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    width: 50vw;
+}
+
+.difficulty-form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 40vh;
+    justify-content: space-evenly;
+}
+
+.difficulty-dropdown,
+.submit-difficulty {
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+    font-weight: bolder;
+    width: 10rem;
+}
+
+.skulls {
+    /* height: 20rem; */
+    object-fit: cover;
+    width: 50vw;
 }

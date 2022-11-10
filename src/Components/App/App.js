@@ -1,31 +1,25 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Nav } from '../Nav/Nav'
 import { Form } from '../Form/Form'
-import { Question } from '../Question/Question'
-import { Review } from '../Review/Review'
-import { getData } from '../../apiCalls'
+import { QuestionContainer } from '../QuestionContainer/QuestionContainer'
+import { Route, Switch } from 'react-router-dom'
 import './App.css'
 
 export const App = () => {
-
-    const [question, setQuestion] = useState([])
-    const [error, setError] = useState('')
-
-    useEffect(() => {
-        getData()
-            .then(questions => {
-                setQuestion(questions)
-            })
-            .catch(error => setError(`Oops! You took a wrong turn down to a dead end with ${error.message} written on the wall. Turn back.`))
-    }, [])
+    const [difficulty, setDifficulty] = useState('')
 
     return (
         <main className='main-page'>
-            <h1>Trivia Trials</h1>
             <Nav />
-            <Form />
-            <Question />
-            <Review />
+            <Switch>
+                <Route exact path='/'>
+                    <Form difficulty={difficulty} setDifficulty={setDifficulty} />
+                </Route>
+                <Route path='/trivia'>
+                    <QuestionContainer difficulty={difficulty} />
+                </Route>
+                {/* <Route component={BadUrl} /> */}
+            </Switch>
         </main>
     )
 }

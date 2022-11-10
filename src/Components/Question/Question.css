@@ -1,3 +1,26 @@
-.questions {
-    border: 3px solid green;
+.question-card {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    justify-content: space-evenly;
+    padding: 5rem;
+}
+
+.question-text {
+    color: whitesmoke;
+    text-align: center;
+    text-shadow: 0px 0px 30px white,0px 0px 30px white,0px 0px 30px white,0px 0px 10px #553300,0px 0px 10px #553300;
+}
+
+.btn-styling {
+    display: flex;
+    justify-content: space-between;
+    width: 75vw;
+}
+
+.question-btn {
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+    font-weight: bolder;
+    width: 15rem;
 }

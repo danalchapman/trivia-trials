@@ -9,8 +9,10 @@ export const Question = ({ currentQuestion }) => {
             <h3 className='question-text'>{currentQuestion.question}</h3>
             {/* <p>{currentQuestion.correct_answer}</p>
             <p>{currentQuestion.incorrect_answers.join(' ')}</p> */}
-            <button className='question-btn'>Flag for Review</button>
-            <button className='question-btn'>Next Question</button>
+            <span className='btn-styling'>
+                <button className='question-btn'>Tag for Review</button>
+                <button className='question-btn'>Next Question</button>
+            </span>
         </article>
     )
 }

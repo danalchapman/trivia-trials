@@ -12,9 +12,14 @@
     text-shadow: 0px 0px 30px white,0px 0px 30px white,0px 0px 30px white,0px 0px 10px #553300,0px 0px 10px #553300;
 }
 
+.btn-styling {
+    display: flex;
+    justify-content: space-between;
+    width: 75vw;
+}
 
 .question-btn {
     font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
     font-weight: bolder;
-    width: 20rem;
+    width: 15rem;
 }

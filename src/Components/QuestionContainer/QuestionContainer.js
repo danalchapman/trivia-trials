@@ -23,7 +23,7 @@ export const QuestionContainer = ({ difficulty }) => {
     return (
         <section className='questions'>
             { error && <h2>{error}</h2> }
-            { generateCurrentQuestion() }
+            { questions[0] ? generateCurrentQuestion() : null }
         </section>
     )
 }

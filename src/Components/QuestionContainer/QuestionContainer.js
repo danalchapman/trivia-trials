@@ -7,7 +7,7 @@ export const QuestionContainer = ({ difficulty }) => {
 
     const [questions, setQuestions] = useState([])
     const [error, setError] = useState('')
-
+    
     useEffect(() => {
         getData(difficulty)
             .then(questions => {
@@ -17,7 +17,7 @@ export const QuestionContainer = ({ difficulty }) => {
     }, [difficulty])
 
     const generateCurrentQuestion = () => {
-        return <Question currentQuestion={ questions[0] } />
+        return <Question currentQuestion={questions[0]} />
     }
 
     return (

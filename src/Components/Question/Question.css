@@ -2,13 +2,14 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    height: 50%;
+    height: 50vh;
     justify-content: space-evenly;
-    padding: 2rem;
+    padding: 5rem;
 }
 
 .question-text {
     color: whitesmoke;
+    text-align: center;
     text-shadow: 0px 0px 30px white,0px 0px 30px white,0px 0px 30px white,0px 0px 10px #553300,0px 0px 10px #553300;
 }
 

@@ -4,6 +4,7 @@
     flex-direction: column;
     height: 50%;
     justify-content: space-evenly;
+    padding: 2rem;
 }
 
 .question-text {

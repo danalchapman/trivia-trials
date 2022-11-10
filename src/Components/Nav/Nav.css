@@ -1,4 +1,12 @@
 .nav-bar {
-    border: 3px solid pink;
+    background-color: black;
+    background-image: linear-gradient(rgb(0, 0, 0), rgb(106, 12, 12));
+    border-bottom: 3px solid black;
+    display: flex;
+    flex-direction: column;
     text-align: center;
+}
+
+.trivia-title {
+    color: whitesmoke;
 }

@@ -5,7 +5,7 @@ import './Nav.css'
 export const Nav = () => {
     return (
         <nav className='nav-bar'>
-            <h1>Trivia Trials</h1>
+            <h1 className='trivia-title'>Trivia Trials</h1>
             <span>
                 <NavLink exact to='/'>Home</NavLink> | Review
             </span>

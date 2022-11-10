@@ -1,6 +1,22 @@
 .landing-page {
-    border: 3px solid blue;
     display: flex;
     flex-direction: column;
+    height: 50vh;
+    justify-content: space-evenly;
     text-align: center;
+}
+
+.difficulty-form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 40vh;
+    justify-content: space-evenly;
+}
+
+.difficulty-dropdown,
+.submit-difficulty {
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+    font-weight: bolder;
+    width: 10rem;
 }

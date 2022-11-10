@@ -6,7 +6,7 @@ export const Question = ({ currentQuestion }) => {
 
     return (
         <article className='question-card'>
-            {/* <h3>{currentQuestion.question}</h3> */}
+            <h3>{currentQuestion.question}</h3>
             {/* <p>{currentQuestion.correct_answer}</p>
             <p>{currentQuestion.incorrect_answers.join(' ')}</p> */}
             <button>Flag for Review</button>

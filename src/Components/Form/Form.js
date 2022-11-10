@@ -7,7 +7,7 @@ export const Form = ({ difficulty, setDifficulty }) => {
     return (
         <section className='landing-page'>
             <h2>Ready to Begin?</h2>
-            <form>
+            <form className='difficulty-form'>
                 <select
                     className='difficulty-dropdown'
                     name='difficulty'

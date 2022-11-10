@@ -1,3 +1,11 @@
 .questions {
-    border: 3px solid green;
+    align-items: center;
+    background-attachment: fixed;
+    background-image: url('../../Assets/wall.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    height: 100%;
+    justify-content: center;
 }

@@ -23,10 +23,7 @@ export const Form = ({ difficulty, setDifficulty }) => {
                         <option value='hard'>Hard</option>
                     </select>
                     <Link to='/trivia'>
-                        <button
-                            className='submit-difficulty'
-                            // onClick={() => setDifficulty(difficulty)}
-                        >Enter the Dungeon</button>
+                        <button className='submit-difficulty'>Enter the Dungeon</button>
                     </Link>
                 </form>
             </div>

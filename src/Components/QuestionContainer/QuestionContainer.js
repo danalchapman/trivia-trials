@@ -6,7 +6,6 @@ import './QuestionContainer.css'
 export const QuestionContainer = ({ difficulty }) => {
 
     const [questions, setQuestions] = useState([])
-    // const [score, setScore] = useState(0)
     const [error, setError] = useState('')
     
     useEffect(() => {
@@ -17,16 +16,9 @@ export const QuestionContainer = ({ difficulty }) => {
             .catch(error => setError(`Oops. ${error.message} Try again.`))
     }, [difficulty])
 
-    /* const clickAnswer = event => {
-        event.preventDefault()
-        if the chosen answer === currentQuestion answer
-        setScore(score + 1)
-    }*/
-
-    /*const nextQuestion = () => {
-        if currentQuestion <= 9
-        currentQuestion + 1
-    }*/
+    // const getNextQuestion = () => {
+    //     if ()
+    // }
 
     const generateCurrentQuestion = () => {
         return <Question currentQuestion={questions[0]}  />

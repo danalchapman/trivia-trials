@@ -16,9 +16,9 @@ export const QuestionContainer = ({ difficulty }) => {
             .catch(error => setError(`Oops. ${error.message} Try again.`))
     }, [difficulty])
 
-    // const getNextQuestion = () => {
-    //     if ()
-    // }
+    const getNextQuestion = event => {
+        
+    }
 
     const generateCurrentQuestion = () => {
         return <Question currentQuestion={questions[0]}  />
@@ -27,7 +27,7 @@ export const QuestionContainer = ({ difficulty }) => {
     return (
         <section className='questions'>
             { error && <h2>{error}</h2> }
-            { questions[0] ? generateCurrentQuestion() : null }
+            { questions[0] ? generateCurrentQuestion() : <h4 className='loading-msg'>Loading your task...</h4> }
         </section>
     )
 }

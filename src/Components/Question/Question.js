@@ -18,6 +18,8 @@ export const Question = ({ currentQuestion, getNextQuestion }) => {
         
     // }
 
+    console.log(currentQuestion.correct_answer)
+
     return (
         <article className='question-card'>
             <h3 className='question-text'>{currentQuestion.question}</h3>

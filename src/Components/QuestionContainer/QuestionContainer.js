@@ -16,10 +16,6 @@ export const QuestionContainer = ({ difficulty }) => {
             .catch(error => setError(`Oops. ${error.message} Try again.`))
     }, [difficulty])
 
-    const getNextQuestion = event => {
-        
-    }
-
     const generateCurrentQuestion = () => {
         return <Question currentQuestion={questions[0]}  />
     }

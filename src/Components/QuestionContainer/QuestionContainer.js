@@ -3,7 +3,7 @@ import { Question } from '../Question/Question'
 import { getData } from '../../apiCalls'
 import './QuestionContainer.css'
 
-export const QuestionContainer = ({ difficulty }) => {
+export const QuestionContainer = ({ difficulty, reviews, setReviews, reviewStatus, setReviewStatus }) => {
 
     const [questions, setQuestions] = useState([])
     const [questionIndex, setQuestionIndex] = useState(0)
@@ -17,8 +17,27 @@ export const QuestionContainer = ({ difficulty }) => {
             .catch(error => setError(`Oops. ${error.message} Try again.`))
     }, [difficulty])
 
-    const generateCurrentQuestion = () => {
-        return <Question currentQuestion={questions[questionIndex]} questionIndex={questionIndex} setQuestionIndex={setQuestionIndex} />
+    const addReview = (question) => {
+        const reviewQuestion = {
+            question: questions[questionIndex].question,
+            correctAnswer: questions[questionIndex].correctAnswer,
+            incorrectAnswers: questions[questionIndex].incorrectAnswers
+        }
+
+        if (!reviews.some(review => review.question === question)) {
+            setReviews([...reviews, reviewQuestion])
+            setReviewStatus(true)
+        }
+    }
+        
+        const generateCurrentQuestion = () => {
+        return <Question 
+            currentQuestion={questions[questionIndex]} 
+            questionIndex={questionIndex} 
+            setQuestionIndex={setQuestionIndex}
+            addReview={addReview}
+            reviewStatus={reviewStatus} 
+        />
     }
 
     return (

@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Question.css'
 
-export const Question = ({ currentQuestion, questionIndex, setQuestionIndex }) => {
+export const Question = ({ currentQuestion, questionIndex, setQuestionIndex, addReview, reviewStatus }) => {
 
     const [allAnswers, setAllAnswers] = useState([])
     const [score, setScore] = useState(0)
     const [selectedAnswer, setSelectedAnswer] = useState('')
     
     const isLastQuestion = questionIndex < 4
+    const addedText = reviewStatus ? 'Saved!' : 'Save for Review' 
     
     useEffect(() => { 
         const totalAnswers = currentQuestion.incorrect_answers.map(answer => answer)
@@ -52,7 +53,7 @@ export const Question = ({ currentQuestion, questionIndex, setQuestionIndex }) =
             <h3 className='question-text'>{currentQuestion.question}</h3>
             {renderButtons()}
             <div className='btn-styling'>
-                <button className='question-btn'>Save for Review</button>
+                <button className='question-btn' onClick={() => addReview(currentQuestion.question)}>{addedText}</button>
                 {isLastQuestion 
                 ? <button disabled={!selectedAnswer} className='question-btn' onClick={getNextQuestion}>Next Question</button> 
                 : <Link to='/'><button className='question-btn' disabled={!selectedAnswer}>Return to the Surface...</button></Link>}

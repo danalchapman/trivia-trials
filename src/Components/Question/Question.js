@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Question.css'
 
-export const Question = ({ currentQuestion, questionIndex, setQuestionIndex, addReview, deleteReview, reviewStatus }) => {
+export const Question = ({ currentQuestion, questionIndex, setQuestionIndex, addReview, deleteReview, reviewStatus, reviews, setReviewStatus }) => {
+
+    const thisQuestion = currentQuestion.question
+    const isLastQuestion = questionIndex < 4
+    const addedText = reviewStatus ? 'Saved!' : 'Save for Review' 
 
     const [allAnswers, setAllAnswers] = useState([])
     const [score, setScore] = useState(0)
     const [selectedAnswer, setSelectedAnswer] = useState('')
-    
-    const isLastQuestion = questionIndex < 4
-    const addedText = reviewStatus ? 'Saved!' : 'Save for Review' 
     
     useEffect(() => { 
         const totalAnswers = currentQuestion.incorrect_answers.map(answer => answer)
@@ -19,6 +20,8 @@ export const Question = ({ currentQuestion, questionIndex, setQuestionIndex, add
     }, [currentQuestion])
 
     console.log('Correct Answer:', currentQuestion.correct_answer)
+    console.log('Reviews:', reviews)
+    console.log('ReviewStatus:', reviewStatus)
     
     const clickAnswer = (value) => {
         setSelectedAnswer(value)
@@ -28,7 +31,6 @@ export const Question = ({ currentQuestion, questionIndex, setQuestionIndex, add
     }
 
     const renderButtons = () => {
-        console.log(reviewStatus)
         return allAnswers.map((answer, index) => {
             let btnClass
             if (selectedAnswer && selectedAnswer === answer) {
@@ -52,21 +54,33 @@ export const Question = ({ currentQuestion, questionIndex, setQuestionIndex, add
     const getNextQuestion = () => {
         setQuestionIndex(prevIndex => prevIndex + 1)
         setSelectedAnswer('')
+        setReviewStatus(false)
     }
 
     return (
         <article className='question-card'>
-            <h3 className='question-text'>{currentQuestion.question}</h3>
+            <h3 className='question-text'>{thisQuestion}</h3>
             {renderButtons()}
             <div className='btn-styling'>
                 <button 
                     className='question-btn' 
-                    onClick={reviewStatus ? () => deleteReview(currentQuestion.question) : () => addReview(currentQuestion.question)}>
+                    onClick={reviewStatus 
+                    ? () => deleteReview(thisQuestion) 
+                    : () => addReview(thisQuestion, currentQuestion.correct_answer, currentQuestion.incorrect_answers)}>
                     {addedText}
                 </button>
                 {isLastQuestion 
-                ? <button className='question-btn' disabled={!selectedAnswer} onClick={getNextQuestion}>Next Question</button> 
-                : <Link to='/'><button className='question-btn' disabled={!selectedAnswer}>Return to the Surface...</button></Link>}
+                ? <button 
+                    className='question-btn' 
+                    disabled={!selectedAnswer} 
+                    onClick={getNextQuestion}>
+                    Next Question
+                </button> 
+                : <Link to='/'><button 
+                    className='question-btn' 
+                    disabled={!selectedAnswer}>
+                    Return to the Surface...
+                </button></Link>}
             </div>
             <p className='question-text'>{score ? `Score: ${score}/5` : `Score: 0/5` }</p>
         </article>

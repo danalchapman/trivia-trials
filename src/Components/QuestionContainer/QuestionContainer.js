@@ -8,29 +8,29 @@ export const QuestionContainer = ({ difficulty, reviews, setReviews, reviewStatu
     const [questions, setQuestions] = useState([])
     const [questionIndex, setQuestionIndex] = useState(0)
     const [error, setError] = useState('')
+
     
     useEffect(() => {
         getData(difficulty)
-            .then(questions => {
-                setQuestions(questions.results)
-            })
-            .catch(error => setError(`Oops. ${error.message} Try again.`))
+        .then(questions => {
+            setQuestions(questions.results)
+        })
+        .catch(error => setError(`Oops. ${error.message} Try again.`))
     }, [difficulty])
-
-    const addReview = (question) => {
+    
+    const addReview = (question, correctAnswer, incorrectAnswers) => {
         const reviewQuestion = {
-            question: questions[questionIndex].question,
-            correctAnswer: questions[questionIndex].correctAnswer,
-            incorrectAnswers: questions[questionIndex].incorrectAnswers
+            question,
+            correctAnswer,
+            incorrectAnswers,
         }
-
+        
+        console.log(reviewQuestion)
         if (!reviews.some(review => review.question === question)) {
             setReviews([...reviews, reviewQuestion])
             setReviewStatus(true)
         }
     }
-
-    
         
     const generateCurrentQuestion = () => {
         return <Question 
@@ -40,6 +40,8 @@ export const QuestionContainer = ({ difficulty, reviews, setReviews, reviewStatu
             addReview={addReview}
             deleteReview={deleteReview}
             reviewStatus={reviewStatus} 
+            reviews={reviews}
+            setReviewStatus={setReviewStatus}
         />
     }
 

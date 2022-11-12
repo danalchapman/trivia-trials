@@ -1,10 +1,23 @@
 import React from 'react'
+import { Review } from '../Review/Review'
+import { NoReview } from '../NoReview/NoReview'
 import './ReviewBox.css'
 
-export const ReviewBox = () => {
+export const ReviewBox = ({ reviews, deleteReview}) => {
+    const reviewsList = reviews.map(review => {
+        return (
+            <Review 
+                key={review.question}
+                question={review.question}
+                correctAnswer={review.correct_answer}
+                incorrectAnswers={review.incorrect_answers}
+            />
+        )
+    })
+
     return (
         <section className='review-page'> 
-            <p>Rawr I'm your reviewable questions</p>
+            {reviewsList.length ? reviewsList : <NoReview />}
         </section>
     )
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import './Form.css'
 
 const skulls = require('../../Assets/skulls.jpg')
@@ -30,4 +31,9 @@ export const Form = ({ difficulty, setDifficulty }) => {
             <img className='skulls' src={skulls} alt='skulls on a wall' />
         </section>
     )
+}
+
+Form.propTypes = {
+    difficulty: PropTypes.string,
+    setDifficulty: PropTypes.func
 }

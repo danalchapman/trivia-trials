@@ -25,7 +25,6 @@ export const QuestionContainer = ({ difficulty, reviews, setReviews, reviewStatu
             incorrectAnswers,
         }
         
-        console.log(reviewQuestion)
         if (!reviews.some(review => review.question === question)) {
             setReviews([...reviews, reviewQuestion])
             setReviewStatus(true)
@@ -40,7 +39,6 @@ export const QuestionContainer = ({ difficulty, reviews, setReviews, reviewStatu
             addReview={addReview}
             deleteReview={deleteReview}
             reviewStatus={reviewStatus} 
-            reviews={reviews}
             setReviewStatus={setReviewStatus}
         />
     }

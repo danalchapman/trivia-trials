@@ -3,14 +3,16 @@ import { Review } from '../Review/Review'
 import { NoReview } from '../NoReview/NoReview'
 import './ReviewBox.css'
 
-export const ReviewBox = ({ reviews, deleteReview}) => {
+export const ReviewBox = ({ reviews, deleteReview }) => {
     const reviewsList = reviews.map(review => {
+        console.log(review)
         return (
             <Review 
                 key={review.question}
                 question={review.question}
-                correctAnswer={review.correct_answer}
-                incorrectAnswers={review.incorrect_answers}
+                correctAnswer={review.correctAnswer}
+                incorrectAnswers={review.incorrectAnswers}
+                deleteReview={deleteReview}
             />
         )
     })
@@ -21,9 +23,6 @@ export const ReviewBox = ({ reviews, deleteReview}) => {
         </section>
     )
 }
-
-// need to pass down Review Component
-// // Question + Answers (Correct Answer Highlighted)
 
 // in the return, need to conditionally render
 // <section className={reviews.length ? 'review-page' : 'no-reviews'}>

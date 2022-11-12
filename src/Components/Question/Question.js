@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Question.css'
 
-export const Question = ({ currentQuestion, questionIndex, setQuestionIndex, addReview, deleteReview, reviewStatus, reviews, setReviewStatus }) => {
+export const Question = ({ currentQuestion, questionIndex, setQuestionIndex, addReview, deleteReview, reviewStatus, setReviewStatus }) => {
 
     const thisQuestion = currentQuestion.question
     const isLastQuestion = questionIndex < 4
@@ -20,8 +20,6 @@ export const Question = ({ currentQuestion, questionIndex, setQuestionIndex, add
     }, [currentQuestion])
 
     console.log('Correct Answer:', currentQuestion.correct_answer)
-    console.log('Reviews:', reviews)
-    console.log('ReviewStatus:', reviewStatus)
     
     const clickAnswer = (value) => {
         setSelectedAnswer(value)

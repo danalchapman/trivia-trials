@@ -1,6 +1,7 @@
 import React from 'react'
 import { Review } from '../Review/Review'
 import { NoReview } from '../NoReview/NoReview'
+import PropTypes from 'prop-types'
 import './ReviewBox.css'
 
 export const ReviewBox = ({ reviews, deleteReview }) => {
@@ -24,4 +25,7 @@ export const ReviewBox = ({ reviews, deleteReview }) => {
     )
 }
 
-// <section className={reviews.length ? 'review-page' : 'no-reviews'}>
+ReviewBox.propTypes = {
+    reviews: PropTypes.array,
+    deleteReview: PropTypes.func
+}

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Question.css'
 
-export const Question = ({ currentQuestion, questionIndex, setQuestionIndex, addReview, reviewStatus }) => {
+export const Question = ({ currentQuestion, questionIndex, setQuestionIndex, addReview, deleteReview, reviewStatus }) => {
 
     const [allAnswers, setAllAnswers] = useState([])
     const [score, setScore] = useState(0)
@@ -28,6 +28,7 @@ export const Question = ({ currentQuestion, questionIndex, setQuestionIndex, add
     }
 
     const renderButtons = () => {
+        console.log(reviewStatus)
         return allAnswers.map((answer, index) => {
             let btnClass
             if (selectedAnswer && selectedAnswer === answer) {
@@ -37,9 +38,14 @@ export const Question = ({ currentQuestion, questionIndex, setQuestionIndex, add
                     btnClass = 'answer-incorrect'
                 }
             }
-            return <button key={index} disabled={selectedAnswer} className={`answer-text ${btnClass}`} value={answer} onClick={() => clickAnswer(answer)} 
-            
-            >{answer}</button>
+            return <button 
+                key={index} 
+                disabled={selectedAnswer} 
+                className={`answer-text ${btnClass}`} 
+                value={answer} 
+                onClick={() => clickAnswer(answer)}>
+                {answer}
+            </button>
         })
     }
 
@@ -53,9 +59,13 @@ export const Question = ({ currentQuestion, questionIndex, setQuestionIndex, add
             <h3 className='question-text'>{currentQuestion.question}</h3>
             {renderButtons()}
             <div className='btn-styling'>
-                <button className='question-btn' onClick={() => addReview(currentQuestion.question)}>{addedText}</button>
+                <button 
+                    className='question-btn' 
+                    onClick={reviewStatus ? () => deleteReview(currentQuestion.question) : () => addReview(currentQuestion.question)}>
+                    {addedText}
+                </button>
                 {isLastQuestion 
-                ? <button disabled={!selectedAnswer} className='question-btn' onClick={getNextQuestion}>Next Question</button> 
+                ? <button className='question-btn' disabled={!selectedAnswer} onClick={getNextQuestion}>Next Question</button> 
                 : <Link to='/'><button className='question-btn' disabled={!selectedAnswer}>Return to the Surface...</button></Link>}
             </div>
             <p className='question-text'>{score ? `Score: ${score}/5` : `Score: 0/5` }</p>

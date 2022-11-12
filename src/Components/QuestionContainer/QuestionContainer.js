@@ -29,13 +29,20 @@ export const QuestionContainer = ({ difficulty, reviews, setReviews, reviewStatu
             setReviewStatus(true)
         }
     }
+
+    const deleteReview = (question) => {
+        const filteredReviews = reviews.filter(review => review.question === question) 
+        setReviews(filteredReviews)
+        setReviewStatus(false)
+    }
         
-        const generateCurrentQuestion = () => {
+    const generateCurrentQuestion = () => {
         return <Question 
             currentQuestion={questions[questionIndex]} 
             questionIndex={questionIndex} 
             setQuestionIndex={setQuestionIndex}
             addReview={addReview}
+            deleteReview={deleteReview}
             reviewStatus={reviewStatus} 
         />
     }

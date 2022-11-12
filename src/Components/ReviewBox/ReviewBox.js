@@ -13,5 +13,5 @@ export const ReviewBox = () => {
 // // Question + Answers (Correct Answer Highlighted)
 
 // in the return, need to conditionally render
-// <section className={reviewsList.length ? 'review-page' : 'no-reviews'}>
-// { reviewsList.length ? reviewsList (reviewable questions) : <NoReview /> }
+// <section className={reviews.length ? 'review-page' : 'no-reviews'}>
+// { reviews.length ? reviewsList (reviewable questions) : <NoReview /> }

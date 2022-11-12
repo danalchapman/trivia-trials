@@ -3,7 +3,7 @@ import { Question } from '../Question/Question'
 import { getData } from '../../apiCalls'
 import './QuestionContainer.css'
 
-export const QuestionContainer = ({ difficulty, reviews, setReviews, reviewStatus, setReviewStatus }) => {
+export const QuestionContainer = ({ difficulty, reviews, setReviews, reviewStatus, setReviewStatus, deleteReview }) => {
 
     const [questions, setQuestions] = useState([])
     const [questionIndex, setQuestionIndex] = useState(0)
@@ -30,11 +30,7 @@ export const QuestionContainer = ({ difficulty, reviews, setReviews, reviewStatu
         }
     }
 
-    const deleteReview = (question) => {
-        const filteredReviews = reviews.filter(review => review.question === question) 
-        setReviews(filteredReviews)
-        setReviewStatus(false)
-    }
+    
         
     const generateCurrentQuestion = () => {
         return <Question 

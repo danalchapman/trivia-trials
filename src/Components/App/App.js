@@ -11,6 +11,12 @@ export const App = () => {
     const [reviews, setReviews] = useState([])
     const [reviewStatus, setReviewStatus] = useState(false)
 
+    const deleteReview = (question) => {
+        const filteredReviews = reviews.filter(review => review.question === question) 
+        setReviews(filteredReviews)
+        setReviewStatus(false)
+    }
+
     return (
         <main className='main-page'>
             <Nav />
@@ -25,11 +31,13 @@ export const App = () => {
                         setReviews={setReviews}    
                         reviewStatus={reviewStatus}
                         setReviewStatus={setReviewStatus}
+                        deleteReview={deleteReview}
                     />
                 </Route>
                 <Route path='/review'>
                     <ReviewBox 
-                        reviewStatus={reviewStatus}
+                        reviews={reviews}
+                        deleteReview={deleteReview}
                     />
                 </Route>
                 {/* <Route component={BadUrl} /> */}

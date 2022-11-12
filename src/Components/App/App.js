@@ -3,6 +3,7 @@ import { Nav } from '../Nav/Nav'
 import { ReviewBox } from '../ReviewBox/ReviewBox'
 import { Form } from '../Form/Form'
 import { QuestionContainer } from '../QuestionContainer/QuestionContainer'
+import { BadUrl } from '../BadUrl/BadUrl'
 import { Route, Switch } from 'react-router-dom'
 import './App.css'
 
@@ -41,7 +42,7 @@ export const App = () => {
                         deleteReview={deleteReview}
                     />
                 </Route>
-                {/* <Route component={BadUrl} /> */}
+                <Route component={BadUrl} />
             </Switch>
         </main>
     )

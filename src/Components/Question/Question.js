@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import './Question.css'
 
-export const Question = ({ currentQuestion }) => {
+export const Question = ({ currentQuestion, questionIndex, setQuestionIndex }) => {
 
     const [allAnswers, setAllAnswers] = useState([])
     const [score, setScore] = useState(0)
     const [selectedAnswer, setSelectedAnswer] = useState('')
-    // const [thisQuestion, setThisQuestion] = useState({})
+    
+    // const isLastQuestion = questionIndex === 5
     
     useEffect(() => { 
         const totalAnswers = currentQuestion.incorrect_answers.map(answer => answer)
@@ -20,10 +21,7 @@ export const Question = ({ currentQuestion }) => {
     const clickAnswer = (value) => {
         setSelectedAnswer(value)
         if (value === currentQuestion.correct_answer) {
-            // event.currentTarget.classList.add('answer-correct')
             setScore(prevScore => prevScore + 1)
-        } else {
-            // event.currentTarget.classList.add('answer-incorrect')
         }
     }
 
@@ -41,22 +39,24 @@ export const Question = ({ currentQuestion }) => {
         })
     }
 
-    const getNextQuestion = (event) => {
-        // how to take currentQuestion(questions[0]) to currentQuestion(questions[1])
+    const getNextQuestion = () => {
+        setQuestionIndex(prevIndex => prevIndex + 1)
+        setSelectedAnswer('')
     }
 
     return (
         <article className='question-card'>
             <h3 className='question-text'>{currentQuestion.question}</h3>
             {renderButtons()}
-            <p className='question-text'>{score ? `Score: ${score}` : `Score: 0` }</p>
-            <span className='btn-styling'>
+            <div className='btn-styling'>
                 <button className='question-btn'>Save for Review</button>
                 <button 
+                    disabled={!selectedAnswer}
                     className='question-btn'
                     onClick={getNextQuestion}
-                >Next Question</button>
-            </span>
+                    >Next Question</button> 
+            </div>
+            <p className='question-text'>{score ? `Score: ${score}/5` : `Score: 0` }</p>
         </article>
     )
 }

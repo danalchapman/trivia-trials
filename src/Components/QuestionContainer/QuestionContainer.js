@@ -6,6 +6,7 @@ import './QuestionContainer.css'
 export const QuestionContainer = ({ difficulty }) => {
 
     const [questions, setQuestions] = useState([])
+    const [questionIndex, setQuestionIndex] = useState(0)
     const [error, setError] = useState('')
     
     useEffect(() => {
@@ -17,7 +18,7 @@ export const QuestionContainer = ({ difficulty }) => {
     }, [difficulty])
 
     const generateCurrentQuestion = () => {
-        return <Question currentQuestion={questions[0]}  />
+        return <Question currentQuestion={questions[questionIndex]} questionIndex={questionIndex} setQuestionIndex={setQuestionIndex} />
     }
 
     return (

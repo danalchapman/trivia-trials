@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import './Question.css'
 
 export const Question = ({ currentQuestion, questionIndex, setQuestionIndex }) => {
@@ -7,7 +8,7 @@ export const Question = ({ currentQuestion, questionIndex, setQuestionIndex }) =
     const [score, setScore] = useState(0)
     const [selectedAnswer, setSelectedAnswer] = useState('')
     
-    // const isLastQuestion = questionIndex === 5
+    const isLastQuestion = questionIndex < 4
     
     useEffect(() => { 
         const totalAnswers = currentQuestion.incorrect_answers.map(answer => answer)
@@ -26,7 +27,7 @@ export const Question = ({ currentQuestion, questionIndex, setQuestionIndex }) =
     }
 
     const renderButtons = () => {
-        return allAnswers.map(answer => {
+        return allAnswers.map((answer, index) => {
             let btnClass
             if (selectedAnswer && selectedAnswer === answer) {
                 if (answer === currentQuestion.correct_answer) {
@@ -35,7 +36,9 @@ export const Question = ({ currentQuestion, questionIndex, setQuestionIndex }) =
                     btnClass = 'answer-incorrect'
                 }
             }
-            return <button disabled={selectedAnswer} className={`answer-text ${btnClass}`} value={answer} onClick={() => clickAnswer(answer)} >{answer}</button>
+            return <button key={index} disabled={selectedAnswer} className={`answer-text ${btnClass}`} value={answer} onClick={() => clickAnswer(answer)} 
+            
+            >{answer}</button>
         })
     }
 
@@ -50,13 +53,11 @@ export const Question = ({ currentQuestion, questionIndex, setQuestionIndex }) =
             {renderButtons()}
             <div className='btn-styling'>
                 <button className='question-btn'>Save for Review</button>
-                <button 
-                    disabled={!selectedAnswer}
-                    className='question-btn'
-                    onClick={getNextQuestion}
-                    >Next Question</button> 
+                {isLastQuestion 
+                ? <button disabled={!selectedAnswer} className='question-btn' onClick={getNextQuestion}>Next Question</button> 
+                : <Link to='/'><button className='question-btn' disabled={!selectedAnswer}>Return to the Surface...</button></Link>}
             </div>
-            <p className='question-text'>{score ? `Score: ${score}/5` : `Score: 0` }</p>
+            <p className='question-text'>{score ? `Score: ${score}/5` : `Score: 0/5` }</p>
         </article>
     )
 }

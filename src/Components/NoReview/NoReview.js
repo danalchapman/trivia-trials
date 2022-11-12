@@ -4,9 +4,9 @@ import './NoReview.css'
 
 export const NoReview = () => {
     return (
-        <article>
+        <article className='no-reviews'>
             <h2>Turn back... there is nothing for you here.</h2>
-            <Link to='/'><button>Return to the surface...</button></Link>
+            <Link to='/'><button className='return-home'>Return to the surface...</button></Link>
         </article>
     )
 }

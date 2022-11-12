@@ -24,6 +24,4 @@ export const ReviewBox = ({ reviews, deleteReview }) => {
     )
 }
 
-// in the return, need to conditionally render
 // <section className={reviews.length ? 'review-page' : 'no-reviews'}>
-// { reviews.length ? reviewsList (reviewable questions) : <NoReview /> }

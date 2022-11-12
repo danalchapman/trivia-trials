@@ -1,0 +1,47 @@
+.review-list {
+    align-items: center;
+    border-radius: 1rem;
+    box-shadow: rgb(255, 255, 255) 0px 0px 30px;
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    font-style: italic;
+    height: 40%;
+    justify-content: space-evenly;
+    margin: 2rem;
+    overflow-y: scroll;
+    padding: .75rem;
+    text-align: center;
+    width: 45%;
+    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.review-list::-webkit-scrollbar {
+    display: none;
+  }
+
+.question {
+    color: whitesmoke;
+    font-size: 1.15rem;
+}
+
+.answer {
+    color: whitesmoke;
+    font-size: .90rem;
+}
+
+.correct {
+    color: limegreen;
+}
+
+.incorrect {
+    color: red;
+}
+
+.remove-review {
+    cursor: pointer;
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+    font-weight: bolder;
+    width: 10rem;
+}

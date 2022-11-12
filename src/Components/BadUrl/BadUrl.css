@@ -1,0 +1,21 @@
+.bad-url {
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+    background-image: linear-gradient(rgb(33, 22, 14), rgb(0, 0, 0));
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    font-style: italic;
+    height: 75%;
+    justify-content: space-evenly;
+    padding: 1rem;
+    text-align: center;
+    width: 100%;
+}
+
+.home-button {
+    cursor: pointer;
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+    font-weight: bolder;
+    width: 15rem;
+}

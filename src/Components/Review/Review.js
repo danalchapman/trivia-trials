@@ -1,10 +1,15 @@
 import React from 'react'
 import './Review.css'
 
-export const Review = () => {
+export const Review = ({ question, correctAnswer, incorrectAnswers, deleteReview }) => {
+    let incorrectText = incorrectAnswers.join(', ')
+
     return (
-        <section className='review-page'>
-            I am your results from the trivia crawl!
-        </section>
+        <article className='review-list'>
+            <h3 className='question'>{question}</h3>
+            <p className='answer'>Correct Answer: <span className='correct'>{correctAnswer}</span></p>
+            <p className='answer'>Incorrect Answers: <span className='incorrect'>{incorrectText}</span></p>
+            <button className='remove-review' onClick={deleteReview}>Delete</button>
+        </article>
     )
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import './Question.css'
 
 export const Question = ({ currentQuestion, questionIndex, setQuestionIndex, addReview, deleteReview, reviewStatus, setReviewStatus }) => {
@@ -83,4 +84,14 @@ export const Question = ({ currentQuestion, questionIndex, setQuestionIndex, add
             <p className='question-text'>{score ? `Score: ${score}/5` : `Score: 0/5` }</p>
         </article>
     )
+}
+
+Question.propTypes = {
+    currentQuestion: PropTypes.object,
+    questionIndex: PropTypes.number,
+    setQuestionIndex: PropTypes.func,
+    addReview: PropTypes.func,
+    deleteReview: PropTypes.func,
+    reviewStatus: PropTypes.array,
+    setReviewStatus: PropTypes.func
 }

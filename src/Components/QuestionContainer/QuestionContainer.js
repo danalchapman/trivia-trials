@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Question } from '../Question/Question'
 import { getData } from '../../apiCalls'
+import PropTypes from 'prop-types'
 import './QuestionContainer.css'
 
 export const QuestionContainer = ({ difficulty, reviews, setReviews, reviewStatus, setReviewStatus, deleteReview }) => {
@@ -49,4 +50,13 @@ export const QuestionContainer = ({ difficulty, reviews, setReviews, reviewStatu
             { questions[0] ? generateCurrentQuestion() : <h4 className='loading-msg'>Loading your task...</h4> }
         </section>
     )
+}
+
+QuestionContainer.propTypes = {
+    difficulty: PropTypes.string,
+    reviews: PropTypes.array,
+    setReviews: PropTypes.func,
+    reviewStatus: PropTypes.bool,
+    setReviewStatus: PropTypes.func,
+    deleteReview: PropTypes.func
 }

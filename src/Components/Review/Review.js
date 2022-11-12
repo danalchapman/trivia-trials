@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './Review.css'
 
 export const Review = ({ question, correctAnswer, incorrectAnswers, deleteReview }) => {
@@ -12,4 +13,11 @@ export const Review = ({ question, correctAnswer, incorrectAnswers, deleteReview
             <button className='remove-review' onClick={deleteReview}>Delete</button>
         </article>
     )
+}
+
+Review.propTypes = {
+    question: PropTypes.string,
+    correctAnswer: PropTypes.string,
+    incorrectAnswers: PropTypes.array,
+    deleteReview: PropTypes.func
 }

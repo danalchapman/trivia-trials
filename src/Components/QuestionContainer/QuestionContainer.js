@@ -6,6 +6,7 @@ import './QuestionContainer.css'
 export const QuestionContainer = ({ difficulty }) => {
 
     const [questions, setQuestions] = useState([])
+    const [questionIndex, setQuestionIndex] = useState(0)
     const [error, setError] = useState('')
     
     useEffect(() => {
@@ -17,13 +18,13 @@ export const QuestionContainer = ({ difficulty }) => {
     }, [difficulty])
 
     const generateCurrentQuestion = () => {
-        return <Question currentQuestion={questions[0]} />
+        return <Question currentQuestion={questions[questionIndex]} questionIndex={questionIndex} setQuestionIndex={setQuestionIndex} />
     }
 
     return (
         <section className='questions'>
             { error && <h2>{error}</h2> }
-            { questions[0] ? generateCurrentQuestion() : null }
+            { questions[0] ? generateCurrentQuestion() : <h4 className='loading-msg'>Loading your task...</h4> }
         </section>
     )
 }

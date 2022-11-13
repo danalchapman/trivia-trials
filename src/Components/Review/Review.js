@@ -10,7 +10,7 @@ export const Review = ({ question, correctAnswer, incorrectAnswers, deleteReview
             <h3 className='question'>{question}</h3>
             <p className='answer'>Correct Answer: <span className='correct'>{correctAnswer}</span></p>
             <p className='answer'>Incorrect Answers: <span className='incorrect'>{incorrectText}</span></p>
-            <button className='remove-review' onClick={deleteReview}>Delete</button>
+            <button className='remove-review' onClick={() => deleteReview(question)}>Delete</button>
         </article>
     )
 }

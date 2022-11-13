@@ -19,8 +19,6 @@ export const Question = ({ currentQuestion, questionIndex, setQuestionIndex, add
         totalAnswers.splice(mixAnswers, 0, currentQuestion.correct_answer)
         setAllAnswers(totalAnswers)
     }, [currentQuestion])
-
-    console.log('Correct Answer:', currentQuestion.correct_answer)
     
     const clickAnswer = (value) => {
         setSelectedAnswer(value)
@@ -92,6 +90,6 @@ Question.propTypes = {
     setQuestionIndex: PropTypes.func,
     addReview: PropTypes.func,
     deleteReview: PropTypes.func,
-    reviewStatus: PropTypes.array,
+    reviewStatus: PropTypes.bool,
     setReviewStatus: PropTypes.func
 }

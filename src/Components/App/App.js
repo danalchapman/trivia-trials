@@ -10,11 +10,11 @@ import './App.css'
 export const App = () => {
 
     const [difficulty, setDifficulty] = useState('')
-    const [reviews, setReviews] = useState([]) // all saved questions
-    const [reviewStatus, setReviewStatus] = useState(false) // 
+    const [reviews, setReviews] = useState([]) 
+    const [reviewStatus, setReviewStatus] = useState(false) 
 
     const deleteReview = (question) => {
-        const filteredReviews = reviews.filter(review => review.question === question) 
+        const filteredReviews = reviews.filter(review => review.question !== question) 
         setReviews(filteredReviews)
         setReviewStatus(false)
     }

@@ -67,6 +67,7 @@ This solo showcase project was assigned during the third module of Turing's Fron
 ## Roadmap
 
 - [ ] Implement other game options -- category (dropdown list of available categories), type (multiple choice, true or false, or both), and length of game (number of questions)
+- [ ] Refactoring the `.replaceAll()` methods in the `Question` and `Review` Components to something more efficient to remove the weird characters from the API
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

@@ -5,7 +5,7 @@
 
 <h3 align="center">Trivia for the curious... and the brave.</h3>
 
-<h4 align="center"><a href=""><strong>Trivia Trials: Live</strong></a> | <a href="https://github.com/danalchapman/trivia-trials"><strong>Repository »</strong></a></h4>
+<h4 align="center"><a href="https://trivia-trials.vercel.app/"><strong>Trivia Trials: Live</strong></a> | <a href="https://github.com/danalchapman/trivia-trials"><strong>Repository »</strong></a></h4>
 
 <p></p>
 
@@ -36,10 +36,10 @@ Ever need to get some much-needed trivia practice between trivia nights with you
 <br>
 
 <h3 align="center">Landing Page & Choose Your Difficulty</h3>
-<p align="center"><img width="500" src="" alt="Trivia Trials displaying the landing page and choosing game difficulty preview gif"></p>
+<p align="center"><img width="500" src="https://media.giphy.com/media/6JlZRgBYFBo4w0wpVt/giphy.gif" alt="Trivia Trials displaying the landing page and choosing game difficulty preview gif"></p>
 
 <h3 align="center">No Review Questions & Bad URL Handling:</h3>
-<p align="center"><img width="500" src="" alt="Trivia Trials visiting review page without any questions and bad URL handling preview gif"></p>
+<p align="center"><img width="500" src="https://media.giphy.com/media/NXv8rdBM2L3lIHefhl/giphy.gif" alt="Trivia Trials visiting review page without any questions and bad URL handling preview gif"></p>
 
 <br />
 This solo showcase project was assigned during the third module of Turing's Front-End Engineering program. It's main goal was to give students an opportunity to show off their cumulative skills they've learned in at least 18 weeks of being in the program, including React, React-Router, Cypress, and more. The details of this project are outlined in <a href="https://frontend.turing.edu/projects/module-3/showcase.html">this</a> project spec.

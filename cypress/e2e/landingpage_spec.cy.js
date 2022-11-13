@@ -40,19 +40,11 @@ describe('Navigation', () => {
 
 describe('Difficulty Form', () => {
 
-  it.only('Should be able to pick a difficulty and start the game', () => {
+  it('Should be able to pick a difficulty and start the game', () => {
     cy.intercept('https://opentdb.com/api.php?amount=5&difficulty=easy&type=multiple', {
       statusCode: 200,
       ok: true,
       fixture: 'game1.json'
-      // body: [{
-      //   "category": "Test",
-      //   "type": "multiple",
-      //   "difficulty": "easy",
-      //   "question": "Test Question",
-      //   "correct_answer": "Yes",
-      //   "incorrect_answers": ["No", "Maybe", "Kinda"]
-      // }]
     })
     cy.visit('http://localhost:3000/')
     cy.get('.difficulty-dropdown')

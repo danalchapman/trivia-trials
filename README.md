@@ -84,7 +84,7 @@ I spent a portion of the project-time overwhelmed by the logic in `QuestionConta
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Contact & Credits
+## Contact
 
 <table align="center">
     <tr>

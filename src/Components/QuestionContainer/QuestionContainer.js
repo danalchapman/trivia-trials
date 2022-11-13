@@ -46,8 +46,8 @@ export const QuestionContainer = ({ difficulty, reviews, setReviews, reviewStatu
 
     return (
         <section className='questions'>
-            { error && <h2>{error}</h2> }
-            { questions[0] ? generateCurrentQuestion() : <h4 className='loading-msg'>Loading your task...</h4> }
+            { error && <h2 className='error-msg'>{error}</h2> }
+            { questions.length ? generateCurrentQuestion() : <h4 className='loading-msg'>Loading your task...</h4> }
         </section>
     )
 }

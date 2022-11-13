@@ -12,18 +12,17 @@ export const Question = ({ currentQuestion, questionIndex, setQuestionIndex, add
     const [allAnswers, setAllAnswers] = useState([])
     const [score, setScore] = useState(0)
     const [selectedAnswer, setSelectedAnswer] = useState('')
-    
+
     useEffect(() => { 
         const totalAnswers = currentQuestion.incorrect_answers.map(answer => answer)
         const mixAnswers = Math.floor(Math.random() * Math.floor(totalAnswers.length))
         totalAnswers.splice(mixAnswers, 0, currentQuestion.correct_answer)
         setAllAnswers(totalAnswers)
     }, [currentQuestion])
-
-    console.log('Correct Answer:', currentQuestion.correct_answer)
     
     const clickAnswer = (value) => {
         setSelectedAnswer(value)
+        
         if (value === currentQuestion.correct_answer) {
             setScore(prevScore => prevScore + 1)
         }
@@ -45,7 +44,7 @@ export const Question = ({ currentQuestion, questionIndex, setQuestionIndex, add
                 className={`answer-text ${btnClass}`} 
                 value={answer} 
                 onClick={() => clickAnswer(answer)}>
-                {answer}
+                {answer.replaceAll('&quot;', '').replaceAll('&amp;', '&').replaceAll('&#039;', '\'')}
             </button>
         })
     }
@@ -58,7 +57,7 @@ export const Question = ({ currentQuestion, questionIndex, setQuestionIndex, add
 
     return (
         <article className='question-card'>
-            <h3 className='question-text'>{thisQuestion}</h3>
+            <h3 className='question-text'>{thisQuestion.replaceAll('&quot;', '').replaceAll('&amp;', '&').replaceAll('&#039;', '\'')}</h3>
             {renderButtons()}
             <div className='btn-styling'>
                 <button 
@@ -92,6 +91,6 @@ Question.propTypes = {
     setQuestionIndex: PropTypes.func,
     addReview: PropTypes.func,
     deleteReview: PropTypes.func,
-    reviewStatus: PropTypes.array,
+    reviewStatus: PropTypes.bool,
     setReviewStatus: PropTypes.func
 }

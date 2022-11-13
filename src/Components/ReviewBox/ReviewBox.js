@@ -6,7 +6,6 @@ import './ReviewBox.css'
 
 export const ReviewBox = ({ reviews, deleteReview }) => {
     const reviewsList = reviews.map(review => {
-        console.log(review)
         return (
             <Review 
                 key={review.question}

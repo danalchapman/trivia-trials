@@ -8,9 +8,9 @@
     "question": "Which of the following Arab countries does NOT have a flag containing only Pan-Arab colours?",
     "correct_answer": "Qatar",
     "incorrect_answers": [
-    "Kuwait",
-    "United Arab Emirates",
-    "Jordan"
+      "Kuwait",
+      "United Arab Emirates",
+      "Jordan"
     ]
   },
   {
@@ -20,9 +20,9 @@
     "question": "In the television show Breaking Bad, what is the street name of Walter and Jesse&#039;s notorious product?",
     "correct_answer": "Blue Sky",
     "incorrect_answers": [
-    "Baby Blue",
-    "Rock Candy",
-    "Pure Glass"
+      "Baby Blue",
+      "Rock Candy",
+      "Pure Glass"
     ]
   }]
 }

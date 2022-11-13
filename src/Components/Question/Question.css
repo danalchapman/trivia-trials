@@ -11,6 +11,7 @@
 .question-text {
     color: whitesmoke;
     font-size: 1.50rem;
+    font-weight: bolder;
     text-shadow: 0px 0px 30px white, 0px 0px 30px white, 0px 0px 30px white, 0px 0px 10px #553300, 0px 0px 10px #553300;
 }
 

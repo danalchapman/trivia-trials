@@ -57,7 +57,7 @@ export const Question = ({ currentQuestion, questionIndex, setQuestionIndex, add
 
     return (
         <article className='question-card'>
-            <h3 className='question-text'>{thisQuestion.replaceAll('&quot;', '').replaceAll('&amp;', '&').replaceAll('&#039;', '\'')}</h3>
+            <p className='question-text'>{thisQuestion.replaceAll('&quot;', '').replaceAll('&amp;', '&').replaceAll('&#039;', '\'')}</p>
             {renderButtons()}
             <div className='btn-styling'>
                 <button 

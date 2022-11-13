@@ -12,7 +12,7 @@ export const Question = ({ currentQuestion, questionIndex, setQuestionIndex, add
     const [allAnswers, setAllAnswers] = useState([])
     const [score, setScore] = useState(0)
     const [selectedAnswer, setSelectedAnswer] = useState('')
-    
+
     useEffect(() => { 
         const totalAnswers = currentQuestion.incorrect_answers.map(answer => answer)
         const mixAnswers = Math.floor(Math.random() * Math.floor(totalAnswers.length))
@@ -44,7 +44,7 @@ export const Question = ({ currentQuestion, questionIndex, setQuestionIndex, add
                 className={`answer-text ${btnClass}`} 
                 value={answer} 
                 onClick={() => clickAnswer(answer)}>
-                {answer}
+                {answer.replaceAll('&quot;', '').replaceAll('&amp;', '&').replaceAll('&#039;', '\'')}
             </button>
         })
     }
@@ -57,7 +57,7 @@ export const Question = ({ currentQuestion, questionIndex, setQuestionIndex, add
 
     return (
         <article className='question-card'>
-            <h3 className='question-text'>{thisQuestion}</h3>
+            <h3 className='question-text'>{thisQuestion.replaceAll('&#039;', '"').replaceAll('&quot;', '').replaceAll('&amp;', '&')}</h3>
             {renderButtons()}
             <div className='btn-styling'>
                 <button 

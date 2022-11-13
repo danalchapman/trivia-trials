@@ -5,7 +5,7 @@ import './Form.css'
 
 const skulls = require('../../Assets/skulls.jpg')
 
-export const Form = ({ difficulty, setDifficulty }) => {
+export const Form = ({ setDifficulty }) => {
     return (
         <section className='landing-page'>
             <div className='form-style'>
@@ -14,7 +14,6 @@ export const Form = ({ difficulty, setDifficulty }) => {
                     <select
                         className='difficulty-dropdown'
                         name='difficulty'
-                        value={difficulty}
                         onChange={event => setDifficulty(event.target.value)}
                     >
                         <option disabled value='Select Difficulty'>Select Difficulty</option>
@@ -33,6 +32,5 @@ export const Form = ({ difficulty, setDifficulty }) => {
 }
 
 Form.propTypes = {
-    difficulty: PropTypes.string,
     setDifficulty: PropTypes.func
 }

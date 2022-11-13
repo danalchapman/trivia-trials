@@ -38,30 +38,31 @@ describe('Navigation', () => {
   })
 })
 
-// describe('Difficulty Form', () => {
+describe('Difficulty Form', () => {
 
-//   it('Should be able to pick a difficulty and start the game', () => {
-//     cy.visit('http://localhost:3000/')
-//     cy.intercept('GET', '/trivia', {
-//       statusCode: 200,
-//       ok: true,
-//       body: {
-//         "question": "Test Question",
-//         "correct_answer": "Yes",
-//         "incorrect_answers": ["No", "Maybe", "Kinda"],
-//         "category": "Test",
-//         "type": "multiple",
-//         "difficulty": "easy"
-//       }
-//     })
-//     cy.get('.difficulty-dropdown')
-//       .select('easy')
-//       .invoke('val')
-//       .should('eq', 'easy')
-//     cy.get('.submit-difficulty').contains('Enter the Dungeon').click()
-//     cy.url('http://localhost:3000/trivia')
-//   })
-// })
+  it.only('Should be able to pick a difficulty and start the game', () => {
+    cy.intercept('https://opentdb.com/api.php?amount=5&difficulty=easy&type=multiple', {
+      statusCode: 200,
+      ok: true,
+      fixture: 'game1.json'
+      // body: [{
+      //   "category": "Test",
+      //   "type": "multiple",
+      //   "difficulty": "easy",
+      //   "question": "Test Question",
+      //   "correct_answer": "Yes",
+      //   "incorrect_answers": ["No", "Maybe", "Kinda"]
+      // }]
+    })
+    cy.visit('http://localhost:3000/')
+    cy.get('.difficulty-dropdown')
+      .select('easy')
+      .invoke('val')
+      .should('eq', 'easy')
+    cy.get('.submit-difficulty').click()
+    cy.url('http://localhost:3000/trivia')
+  })
+})
 
 describe('BadURL', () => {
 

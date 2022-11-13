@@ -9,7 +9,7 @@ import './App.css'
 
 export const App = () => {
 
-    const [difficulty, setDifficulty] = useState('')
+    const [difficulty, setDifficulty] = useState('easy')
     const [reviews, setReviews] = useState([]) 
     const [reviewStatus, setReviewStatus] = useState(false) 
 
@@ -25,7 +25,6 @@ export const App = () => {
             <Switch>
                 <Route exact path='/'>
                     <Form 
-                        difficulty={difficulty} 
                         setDifficulty={setDifficulty} 
                     />
                 </Route>

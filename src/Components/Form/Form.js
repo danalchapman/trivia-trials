@@ -6,7 +6,6 @@ import './Form.css'
 const skulls = require('../../Assets/skulls.jpg')
 
 export const Form = ({ difficulty, setDifficulty }) => {
-
     return (
         <section className='landing-page'>
             <div className='form-style'>

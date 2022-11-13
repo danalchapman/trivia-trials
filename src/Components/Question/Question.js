@@ -22,6 +22,7 @@ export const Question = ({ currentQuestion, questionIndex, setQuestionIndex, add
     
     const clickAnswer = (value) => {
         setSelectedAnswer(value)
+        
         if (value === currentQuestion.correct_answer) {
             setScore(prevScore => prevScore + 1)
         }

@@ -24,7 +24,10 @@ export const App = () => {
             <Nav />
             <Switch>
                 <Route exact path='/'>
-                    <Form difficulty={difficulty} setDifficulty={setDifficulty} />
+                    <Form 
+                        difficulty={difficulty} 
+                        setDifficulty={setDifficulty} 
+                    />
                 </Route>
                 <Route path='/trivia'>
                     <QuestionContainer 
